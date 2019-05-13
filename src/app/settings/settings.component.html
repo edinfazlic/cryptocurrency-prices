@@ -1,0 +1,8 @@
+<mat-radio-group class="currencies-radio-group"
+                 [(ngModel)]="fiatCurrency">
+  <mat-radio-button class="currency-radio-button"
+                    *ngFor="let currency of fiatCurrencies"
+                    [value]="currency">
+    {{currency}}
+  </mat-radio-button>
+</mat-radio-group>
