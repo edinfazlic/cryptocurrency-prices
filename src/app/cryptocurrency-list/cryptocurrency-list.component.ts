@@ -16,10 +16,6 @@ export class CryptocurrencyListComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
-
-  showDetails(cryptoCurrency: Cryptocurrency): void {
-    console.log(cryptoCurrency);
-  }
 }
 
 const CURRENCY_DATA: Cryptocurrency[] = [
