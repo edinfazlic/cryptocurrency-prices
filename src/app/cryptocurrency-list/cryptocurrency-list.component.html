@@ -1,0 +1,43 @@
+<div class="mat-elevation-z8">
+  <button mat-raised-button color="basic">
+    Refresh
+    <i class="material-icons">
+      refresh
+    </i>
+  </button>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="rank">
+      <th mat-header-cell *matHeaderCellDef>Rank</th>
+      <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Symbol</th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>
+        <span class="price-column-header">Price</span>
+        <i class="material-icons"
+           matTooltip="Price in the selected fiat currency">
+          info
+        </i>
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="change">
+      <th mat-header-cell *matHeaderCellDef>24 hour change</th>
+      <td mat-cell *matCellDef="let element"> {{element.change}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showDetails(row)"></tr>
+  </table>
+
+  <!--todo: change page size to 100-->
+  <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+</div>
