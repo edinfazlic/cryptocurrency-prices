@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+.mat-row:nth-child(even){
+  background-color: #ebebeb;
+}
+
+.mat-row:hover {
+  background-color: #dbf1ff;
+  cursor: pointer;
+}
+
+.price-column-header {
+  vertical-align: super;
+}
