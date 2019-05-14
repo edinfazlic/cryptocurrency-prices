@@ -8,15 +8,18 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
+import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CryptocurrencyListComponent} from './cryptocurrency-list/cryptocurrency-list.component';
-import {CryptocurrencyDetailsComponent} from './cryptocurrency-details/cryptocurrency-details.component';
-import {DetailsListItemComponent} from './cryptocurrency-details/details-list-item/details-list-item.component';
-import {MenuToolbarComponent} from './menu-toolbar/menu-toolbar.component';
-import {SettingsComponent} from './settings/settings.component';
+import {CryptocurrencyListComponent} from './components/cryptocurrency-list/cryptocurrency-list.component';
+import {CryptocurrencyDetailsComponent} from './components/cryptocurrency-details/cryptocurrency-details.component';
+import {DetailsListItemComponent} from './components/cryptocurrency-details/details-list-item/details-list-item.component';
+import {MenuToolbarComponent} from './components/menu-toolbar/menu-toolbar.component';
+import {SettingsComponent} from './components/settings/settings.component';
+
+import {CryptocurrencyService} from './service/cryptocurrency.service';
 
 @NgModule({
   declarations: [
@@ -38,9 +41,12 @@ import {SettingsComponent} from './settings/settings.component';
     MatListModule,
     MatToolbarModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CryptocurrencyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
