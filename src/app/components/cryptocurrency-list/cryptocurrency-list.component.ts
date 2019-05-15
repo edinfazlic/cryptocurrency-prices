@@ -1,14 +1,16 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {Store} from '@ngrx/store';
+import {Router} from '@angular/router';
 import {Cryptocurrency} from '../../model/cryptocurrency.model';
 import {CryptocurrencyService} from '../../service/cryptocurrency.service';
 import * as CryptocurrencyActions from '../../shared/cryptocurrency.actions';
-import ReducerNames from '../../model/reducer-names';
+import {ReducerName} from '../../model/reducer-name.enum';
 import {CryptocurrencyCollectionModel} from '../../model/cryptocurrency-collection.model';
+import {Route} from '../../model/route.enum';
 
 interface AppState {
-  [ReducerNames.CURRENCIES]: CryptocurrencyCollectionModel;
+  [ReducerName.CURRENCIES]: CryptocurrencyCollectionModel;
 }
 
 @Component({
@@ -23,12 +25,13 @@ export class CryptocurrencyListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private cryptocurrencyService: CryptocurrencyService,
-              private store: Store<AppState>) {
+              private store: Store<AppState>,
+              private router: Router) {
     this.subscribeEvents();
   }
 
   private subscribeEvents() {
-    this.store.select(ReducerNames.CURRENCIES)
+    this.store.select(ReducerName.CURRENCIES)
       .subscribe((cryptocurrencyCollectionModel: CryptocurrencyCollectionModel) => {
         this.dataSource.data = cryptocurrencyCollectionModel.cryptocurrencies;
       });
@@ -44,5 +47,10 @@ export class CryptocurrencyListComponent implements OnInit {
       .subscribe((data: Cryptocurrency[]) => {
         this.store.dispatch(new CryptocurrencyActions.FetchCurrencies(data));
       });
+  }
+
+  showDetails(cryptocurrency: Cryptocurrency) {
+    this.store.dispatch(new CryptocurrencyActions.SelectCryptocurrency(cryptocurrency));
+    this.router.navigate([Route.DETAILS]);
   }
 }

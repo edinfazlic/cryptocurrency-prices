@@ -22,8 +22,9 @@ import {SettingsComponent} from './components/settings/settings.component';
 
 import {CryptocurrencyService} from './service/cryptocurrency.service';
 
-import ReducerNames from './model/reducer-names';
-import {cryptocurrencyReducer} from './shared/cryptocurrency.reducer';
+import {ReducerName} from './model/reducer-name.enum';
+import {cryptocurrenciesReducer} from './shared/cryptocurrencies.reducer';
+import {selectionReducer} from './shared/selection.reducer';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {cryptocurrencyReducer} from './shared/cryptocurrency.reducer';
     MatRadioModule,
     HttpClientModule,
     StoreModule.forRoot({
-      [ReducerNames.CURRENCIES]: cryptocurrencyReducer
+      [ReducerName.CURRENCIES]: cryptocurrenciesReducer,
+      [ReducerName.SELECTION]: selectionReducer
     })
   ],
   providers: [
