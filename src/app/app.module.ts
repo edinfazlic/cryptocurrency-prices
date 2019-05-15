@@ -9,6 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule} from '@angular/common/http';
+import {StoreModule} from '@ngrx/store';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -20,6 +21,9 @@ import {MenuToolbarComponent} from './components/menu-toolbar/menu-toolbar.compo
 import {SettingsComponent} from './components/settings/settings.component';
 
 import {CryptocurrencyService} from './service/cryptocurrency.service';
+
+import ReducerNames from './model/reducer-names';
+import {cryptocurrencyReducer} from './shared/cryptocurrency.reducer';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import {CryptocurrencyService} from './service/cryptocurrency.service';
     MatToolbarModule,
     FormsModule,
     MatRadioModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({
+      [ReducerNames.CURRENCIES]: cryptocurrencyReducer
+    })
   ],
   providers: [
     CryptocurrencyService

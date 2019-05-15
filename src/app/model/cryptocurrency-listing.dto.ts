@@ -1,6 +1,6 @@
 import {CryptocurrencyDto} from './cryptocurrency.dto';
 
-export interface CryptocurrencyCollectionDto {
+export interface CryptocurrencyListingDto {
   data: CryptocurrencyDto[];
   status: any;
 }

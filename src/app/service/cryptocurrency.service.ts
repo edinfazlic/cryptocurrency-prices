@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {CryptocurrencyCollectionDto} from '../model/cryptocurrency-collection.dto';
+import {CryptocurrencyListingDto} from '../model/cryptocurrency-listing.dto';
 import {CryptocurrencyDto} from '../model/cryptocurrency.dto';
 import {Cryptocurrency} from '../model/cryptocurrency.model';
 
@@ -13,7 +13,7 @@ export class CryptocurrencyService {
   }
 
   getTopNByFiat(n: number, fiat: string): Observable<Cryptocurrency[]> {
-    return this.http.get<CryptocurrencyCollectionDto>('/api/v1/cryptocurrency/listings/latest',
+    return this.http.get<CryptocurrencyListingDto>('/api/v1/cryptocurrency/listings/latest',
       {
         params: {
           'start': '1',
@@ -22,7 +22,7 @@ export class CryptocurrencyService {
         },
         headers: {'X-CMC_PRO_API_KEY': '973a2840-23f4-4300-8e4d-8d59842c5b88'}
       }).pipe(
-      map((response: CryptocurrencyCollectionDto) => {
+      map((response: CryptocurrencyListingDto) => {
         const responseData = response.data;
         const cryptocurrencies = responseData.map((data: CryptocurrencyDto) => {
           const fiatInfo = data.quote[fiat];
