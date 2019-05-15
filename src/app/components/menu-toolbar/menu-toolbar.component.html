@@ -6,11 +6,25 @@
     Refresh
   </button>
   <button mat-stroked-button class="menu-button"
+    [routerLink]="['/details']">
+    <i class="material-icons">
+      details
+    </i>
+    Details
+  </button>
+  <button mat-stroked-button class="menu-button"
+    [routerLink]="['/list']">
+    <i class="material-icons">
+      list
+    </i>
+    List
+  </button>
+  <button mat-stroked-button class="menu-button"
     [routerLink]="['/settings']">
     <i class="material-icons">
       settings
     </i>
     Settings
   </button>
-  <span>EUR</span>
+  <span>{{(fiatState$ | async).currency}}</span>
 </mat-toolbar>

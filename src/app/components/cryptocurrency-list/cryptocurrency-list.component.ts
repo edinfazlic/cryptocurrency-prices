@@ -4,13 +4,16 @@ import {Store} from '@ngrx/store';
 import {Router} from '@angular/router';
 import {Cryptocurrency} from '../../model/cryptocurrency.model';
 import {CryptocurrencyService} from '../../service/cryptocurrency.service';
-import * as CryptocurrencyActions from '../../shared/cryptocurrency.actions';
+import * as Action from '../../shared/cryptocurrency.actions';
 import {ReducerName} from '../../model/reducer-name.enum';
 import {CryptocurrencyCollectionModel} from '../../model/cryptocurrency-collection.model';
 import {Route} from '../../model/route.enum';
+import {FiatCurrency} from '../../model/fiat-currency.enum';
+import {FiatStateModel} from '../../model/fiat-state.model';
 
 interface AppState {
   [ReducerName.CURRENCIES]: CryptocurrencyCollectionModel;
+  [ReducerName.FIAT_CURRENCY_SELECTION]: FiatStateModel;
 }
 
 @Component({
@@ -23,17 +26,22 @@ export class CryptocurrencyListComponent implements OnInit {
   dataSource = new MatTableDataSource<Cryptocurrency>([]);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  fiatCurrency: FiatCurrency;
 
   constructor(private cryptocurrencyService: CryptocurrencyService,
-              private store: Store<AppState>,
+              private store$: Store<AppState>,
               private router: Router) {
     this.subscribeEvents();
   }
 
   private subscribeEvents() {
-    this.store.select(ReducerName.CURRENCIES)
+    this.store$.select(ReducerName.CURRENCIES)
       .subscribe((cryptocurrencyCollectionModel: CryptocurrencyCollectionModel) => {
         this.dataSource.data = cryptocurrencyCollectionModel.cryptocurrencies;
+      });
+    this.store$.select(ReducerName.FIAT_CURRENCY_SELECTION)
+      .subscribe((fiatState: FiatStateModel) => {
+        this.fiatCurrency = fiatState.currency;
       });
   }
 
@@ -43,14 +51,11 @@ export class CryptocurrencyListComponent implements OnInit {
   }
 
   refresh() {
-    this.cryptocurrencyService.getTopNByFiat(100, 'USD')
-      .subscribe((data: Cryptocurrency[]) => {
-        this.store.dispatch(new CryptocurrencyActions.FetchCurrencies(data));
-      });
+    // this.store$.dispatch(new Action.FetchCurrencies(this.fiatCurrency));
   }
 
   showDetails(cryptocurrency: Cryptocurrency) {
-    this.store.dispatch(new CryptocurrencyActions.SelectCryptocurrency(cryptocurrency));
+    this.store$.dispatch(new Action.SelectCryptocurrency(cryptocurrency));
     this.router.navigate([Route.DETAILS]);
   }
 }

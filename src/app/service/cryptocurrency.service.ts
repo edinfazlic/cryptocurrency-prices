@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {CryptocurrencyListingDto} from '../model/cryptocurrency-listing.dto';
 import {CryptocurrencyDto} from '../model/cryptocurrency.dto';
 import {Cryptocurrency} from '../model/cryptocurrency.model';
+import {FiatCurrency} from '../model/fiat-currency.enum';
 
 @Injectable()
 export class CryptocurrencyService {
@@ -12,7 +13,7 @@ export class CryptocurrencyService {
   constructor(private http: HttpClient) {
   }
 
-  getTopNByFiat(n: number, fiat: string): Observable<Cryptocurrency[]> {
+  getTopNByFiat(n: number, fiat: FiatCurrency): Observable<Cryptocurrency[]> {
     return this.http.get<CryptocurrencyListingDto>('/api/v1/cryptocurrency/listings/latest',
       {
         params: {

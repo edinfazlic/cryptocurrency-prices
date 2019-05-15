@@ -17,7 +17,7 @@ export class CryptocurrencyDetailsComponent {
 
   cryptocurrency$: Observable<Cryptocurrency>;
 
-  constructor(private store: Store<AppState>) {
-    this.cryptocurrency$ = this.store.select(ReducerName.SELECTION);
+  constructor(private store$: Store<AppState>) {
+    this.cryptocurrency$ = this.store$.select(ReducerName.SELECTION);
   }
 }

@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -21,10 +22,14 @@ import {MenuToolbarComponent} from './components/menu-toolbar/menu-toolbar.compo
 import {SettingsComponent} from './components/settings/settings.component';
 
 import {CryptocurrencyService} from './service/cryptocurrency.service';
+import {DeactivateSettingsGuard} from './shared/deactivateSettings.guard';
 
 import {ReducerName} from './model/reducer-name.enum';
 import {cryptocurrenciesReducer} from './shared/cryptocurrencies.reducer';
 import {selectionReducer} from './shared/selection.reducer';
+import {fiatCurrenciesReducer} from './shared/fiat-currencies.reducer';
+
+import {CryptocurrencyEffects} from './shared/cryptocurrency.effects';
 
 @NgModule({
   declarations: [
@@ -50,11 +55,14 @@ import {selectionReducer} from './shared/selection.reducer';
     HttpClientModule,
     StoreModule.forRoot({
       [ReducerName.CURRENCIES]: cryptocurrenciesReducer,
-      [ReducerName.SELECTION]: selectionReducer
-    })
+      [ReducerName.SELECTION]: selectionReducer,
+      [ReducerName.FIAT_CURRENCY_SELECTION]: fiatCurrenciesReducer
+    }),
+    EffectsModule.forRoot([CryptocurrencyEffects])
   ],
   providers: [
-    CryptocurrencyService
+    CryptocurrencyService,
+    DeactivateSettingsGuard
   ],
   bootstrap: [AppComponent]
 })
