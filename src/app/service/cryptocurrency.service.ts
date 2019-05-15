@@ -24,7 +24,7 @@ export class CryptocurrencyService {
       }).pipe(
       map((response: CryptocurrencyListingDto) => {
         const responseData = response.data;
-        const cryptocurrencies = responseData.map((data: CryptocurrencyDto) => {
+        const cryptocurrencies: Cryptocurrency[] = responseData.map((data: CryptocurrencyDto) => {
           const fiatInfo = data.quote[fiat];
           return new Cryptocurrency(
             data.cmc_rank,

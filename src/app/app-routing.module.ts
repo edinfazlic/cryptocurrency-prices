@@ -4,12 +4,13 @@ import {Routes, RouterModule} from '@angular/router';
 import {CryptocurrencyListComponent} from './components/cryptocurrency-list/cryptocurrency-list.component';
 import {CryptocurrencyDetailsComponent} from './components/cryptocurrency-details/cryptocurrency-details.component';
 import {SettingsComponent} from './components/settings/settings.component';
+import {Route} from './model/route.enum';
 
 const routes: Routes = [
-  {path: 'list', component: CryptocurrencyListComponent},
-  {path: 'details/:id', component: CryptocurrencyDetailsComponent},
-  {path: 'settings', component: SettingsComponent},
-  {path: '', redirectTo: '/list', pathMatch: 'full'}
+  {path: Route.LIST, component: CryptocurrencyListComponent},
+  {path: Route.DETAILS, component: CryptocurrencyDetailsComponent},
+  {path: Route.SETTINGS, component: SettingsComponent},
+  {path: '', redirectTo: Route.LIST, pathMatch: 'full'}
 ];
 
 @NgModule({
