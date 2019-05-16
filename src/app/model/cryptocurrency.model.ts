@@ -1,5 +1,6 @@
 export class Cryptocurrency {
-  constructor(public rank?: number,
+  constructor(public id?: number,
+              public rank?: number,
               public name?: string,
               public symbol?: string,
               public price?: number,

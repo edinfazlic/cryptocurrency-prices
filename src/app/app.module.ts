@@ -29,7 +29,10 @@ import {cryptocurrenciesReducer} from './shared/cryptocurrencies.reducer';
 import {selectionReducer} from './shared/selection.reducer';
 import {fiatCurrenciesReducer} from './shared/fiat-currencies.reducer';
 
-import {CryptocurrencyEffects} from './shared/cryptocurrency.effects';
+import {CryptocurrencyEffects} from './shared/cryptocurrencies.effects';
+import {ReloadCryptocurrencyEffects} from './shared/reload-cryptocurrencies.effects';
+import {LoadCryptocurrenciesEffects} from './shared/load-cryptocurrencies.effects';
+import {ReloadCryptocurrencyDetailEffects} from './shared/reload-cryptocurrency-detail.effects';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,12 @@ import {CryptocurrencyEffects} from './shared/cryptocurrency.effects';
       [ReducerName.SELECTION]: selectionReducer,
       [ReducerName.FIAT_CURRENCY_SELECTION]: fiatCurrenciesReducer
     }),
-    EffectsModule.forRoot([CryptocurrencyEffects])
+    EffectsModule.forRoot([
+      CryptocurrencyEffects,
+      ReloadCryptocurrencyEffects,
+      LoadCryptocurrenciesEffects,
+      ReloadCryptocurrencyDetailEffects
+    ])
   ],
   providers: [
     CryptocurrencyService,

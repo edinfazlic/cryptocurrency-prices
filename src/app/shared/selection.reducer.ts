@@ -10,6 +10,10 @@ export function selectionReducer(state: Cryptocurrency = defaultState, action: A
   switch (action.type) {
     case ActionName.SELECT_CRYPTOCURRENCY:
       return newState(state, action.payload);
+    case ActionName.CHOOSE_CRYPTOCURRENCY:
+      const selectedCryptocurrency = action.payload.cryptocurrencies.find((cryptocurrency: Cryptocurrency) =>
+        cryptocurrency.id === action.payload.id);
+      return newState(state, selectedCryptocurrency);
     default:
       return state;
   }

@@ -1,12 +1,21 @@
 <div class="mat-elevation-z8">
+
+  <button mat-stroked-button class="menu-button refresh-button"
+          (click)="refresh()">
+    <i class="material-icons">
+      refresh
+    </i>
+    Refresh
+  </button>
+
   <mat-list *ngIf="cryptocurrency$ | async as cc">
     <app-details-list-item label="Rank" value="{{cc.rank}}"></app-details-list-item>
     <app-details-list-item label="Name" value="{{cc.name}}"></app-details-list-item>
     <app-details-list-item label="Symbol" value="{{cc.symbol}}"></app-details-list-item>
-    <app-details-list-item label="Price []" value="{{cc.price}}"></app-details-list-item>
-    <app-details-list-item label="24h volume []" value="{{cc.volume24h}}"></app-details-list-item>
-    <app-details-list-item label="Market cap []" value="{{cc.marketCap}}"></app-details-list-item>
-    <app-details-list-item label="Price in bitcoin" value=""></app-details-list-item>
+    <app-details-list-item label="Price [{{(fiatState$ | async).currency}}]" value="{{cc.price}}"></app-details-list-item>
+    <app-details-list-item label="24h volume [{{(fiatState$ | async).currency}}]" value="{{cc.volume24h}}"></app-details-list-item>
+    <app-details-list-item label="Market cap [{{(fiatState$ | async).currency}}]" value="{{cc.marketCap}}"></app-details-list-item>
+    <app-details-list-item label="Price in bitcoin" value="{{cc.priceInBTC}}"></app-details-list-item>
     <app-details-list-item label="1h change" value="{{cc.change1h}}"></app-details-list-item>
     <app-details-list-item label="24h change" value="{{cc.change24h}}"></app-details-list-item>
     <app-details-list-item label="7d change" value="{{cc.change7d}}"></app-details-list-item>

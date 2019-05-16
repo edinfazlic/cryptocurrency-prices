@@ -3,9 +3,12 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {ReducerName} from '../../model/reducer-name.enum';
 import {Cryptocurrency} from '../../model/cryptocurrency.model';
+import {FiatStateModel} from '../../model/fiat-state.model';
+import * as Action from '../../shared/cryptocurrency.actions';
 
 interface AppState {
   [ReducerName.SELECTION]: Cryptocurrency;
+  [ReducerName.FIAT_CURRENCY_SELECTION]: FiatStateModel;
 }
 
 @Component({
@@ -16,8 +19,14 @@ interface AppState {
 export class CryptocurrencyDetailsComponent {
 
   cryptocurrency$: Observable<Cryptocurrency>;
+  fiatState$: Observable<FiatStateModel>;
 
   constructor(private store$: Store<AppState>) {
     this.cryptocurrency$ = this.store$.select(ReducerName.SELECTION);
+    this.fiatState$ = this.store$.select(ReducerName.FIAT_CURRENCY_SELECTION);
+  }
+
+  refresh() {
+    this.store$.dispatch(new Action.ReloadCryptocurrencyDetail());
   }
 }

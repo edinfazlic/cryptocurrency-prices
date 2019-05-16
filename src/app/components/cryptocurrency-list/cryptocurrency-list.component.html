@@ -1,4 +1,13 @@
 <div class="mat-elevation-z8">
+
+  <button mat-stroked-button class="menu-button refresh-button"
+          (click)="refresh()">
+    <i class="material-icons">
+      refresh
+    </i>
+    Refresh
+  </button>
+
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="rank">
@@ -32,6 +41,5 @@
         (click)="showDetails(row)"></tr>
   </table>
 
-  <!--todo: change page size to 100-->
-  <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 100]" showFirstLastButtons></mat-paginator>
 </div>

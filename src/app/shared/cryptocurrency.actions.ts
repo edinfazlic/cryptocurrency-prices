@@ -17,6 +17,13 @@ export class SelectCryptocurrency implements Action {
   }
 }
 
+export class ChooseCryptocurrency implements Action {
+  readonly type = ActionName.CHOOSE_CRYPTOCURRENCY;
+
+  constructor(public payload: { id: number, cryptocurrencies: Cryptocurrency[] }) {
+  }
+}
+
 export class SelectFiatCurrency implements Action {
   readonly type = ActionName.SELECT_FIAT_CURRENCY;
 
@@ -31,8 +38,22 @@ export class UpdateFiatCurrency implements Action {
   }
 }
 
+export class ReloadCryptocurrencies implements Action {
+  readonly type = ActionName.RELOAD_CRYPTOCURRENCIES;
+}
+
+export class LoadCryptocurrencies implements Action {
+  readonly type = ActionName.LOAD_CRYPTOCURRENCIES;
+}
+
+export class ReloadCryptocurrencyDetail implements Action {
+  readonly type = ActionName.RELOAD_CRYPTOCURRENCY_DETAILS;
+}
 export type Action
   = UpdateCurrencies
   | SelectCryptocurrency
+  | ChooseCryptocurrency
   | SelectFiatCurrency
-  | UpdateFiatCurrency;
+  | UpdateFiatCurrency
+  | ReloadCryptocurrencies
+  | LoadCryptocurrencies;
