@@ -1,9 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {MatTableModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {FormsModule} from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {AngularMaterialModule} from './ng-material.module';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -40,7 +47,14 @@ import {ReloadCryptocurrencyDetailEffects} from './store/effects/reload-cryptocu
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatListModule,
+    MatToolbarModule,
+    FormsModule,
+    MatRadioModule,
     HttpClientModule,
     StoreModule.forRoot({
       [ReducerName.CURRENCIES]: cryptocurrenciesReducer,
