@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 
 import {SettingsComponent} from './settings.component';
-import {fiatCurrenciesReducer} from '../../reducers/fiat-currencies.reducer';
+import {fiatCurrenciesReducer} from '../../store/reducers/fiat-currencies.reducer';
 import {ReducerName} from '../../model/reducer-name.enum';
 
 describe('SettingsComponent', () => {

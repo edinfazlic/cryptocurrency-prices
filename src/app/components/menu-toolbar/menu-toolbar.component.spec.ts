@@ -4,7 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 
 import {MenuToolbarComponent} from './menu-toolbar.component';
-import {fiatCurrenciesReducer} from '../../reducers/fiat-currencies.reducer';
+import {fiatCurrenciesReducer} from '../../store/reducers/fiat-currencies.reducer';
 import {ReducerName} from '../../model/reducer-name.enum';
 
 describe('MenuToolbarComponent', () => {

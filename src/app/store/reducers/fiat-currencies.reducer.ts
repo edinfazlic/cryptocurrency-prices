@@ -1,7 +1,7 @@
-import {Action} from '../shared/cryptocurrency.actions';
-import {ActionName} from '../model/action-name.enum';
-import {FiatCurrency} from '../model/fiat-currency.enum';
-import {FiatStateModel} from '../model/fiat-state.model';
+import {Action} from '../cryptocurrency.actions';
+import {ActionName} from '../../model/action-name.enum';
+import {FiatCurrency} from '../../model/fiat-currency.enum';
+import {FiatStateModel} from '../../model/fiat-state.model';
 
 const defaultState: FiatStateModel = {
   currency: FiatCurrency.USD

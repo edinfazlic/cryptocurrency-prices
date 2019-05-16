@@ -5,7 +5,7 @@ import {StoreModule} from '@ngrx/store';
 
 import {AppComponent} from './app.component';
 import {MenuToolbarComponent} from './components/menu-toolbar/menu-toolbar.component';
-import {fiatCurrenciesReducer} from './reducers/fiat-currencies.reducer';
+import {fiatCurrenciesReducer} from './store/reducers/fiat-currencies.reducer';
 import {ReducerName} from './model/reducer-name.enum';
 
 describe('AppComponent', () => {
