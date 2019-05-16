@@ -5,9 +5,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 
 import {CryptocurrencyListComponent} from './cryptocurrency-list.component';
-import {cryptocurrenciesReducer} from '../../reducers/cryptocurrencies.reducer';
+import {cryptocurrenciesReducer} from '../../store/reducers/cryptocurrencies.reducer';
 import {ReducerName} from '../../model/reducer-name.enum';
-import {fiatCurrenciesReducer} from '../../reducers/fiat-currencies.reducer';
+import {fiatCurrenciesReducer} from '../../store/reducers/fiat-currencies.reducer';
 
 describe('CryptocurrencyListComponent', () => {
   let component: CryptocurrencyListComponent;

@@ -1,6 +1,6 @@
-import {Action} from '../shared/cryptocurrency.actions';
-import {ActionName} from '../model/action-name.enum';
-import {CryptocurrencyCollectionModel} from '../model/cryptocurrency-collection.model';
+import {Action} from '../cryptocurrency.actions';
+import {ActionName} from '../../model/action-name.enum';
+import {CryptocurrencyCollectionModel} from '../../model/cryptocurrency-collection.model';
 
 const defaultState: CryptocurrencyCollectionModel = {
   cryptocurrencies: [],

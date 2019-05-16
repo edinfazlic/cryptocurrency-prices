@@ -1,6 +1,6 @@
-import {Action} from '../shared/cryptocurrency.actions';
-import {ActionName} from '../model/action-name.enum';
-import {Cryptocurrency} from '../model/cryptocurrency.model';
+import {Action} from '../cryptocurrency.actions';
+import {ActionName} from '../../model/action-name.enum';
+import {Cryptocurrency} from '../../model/cryptocurrency.model';
 
 const defaultState: Cryptocurrency = new Cryptocurrency();
 

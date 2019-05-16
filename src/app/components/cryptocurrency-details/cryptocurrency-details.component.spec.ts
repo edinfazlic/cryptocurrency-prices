@@ -4,7 +4,7 @@ import {StoreModule} from '@ngrx/store';
 
 import {CryptocurrencyDetailsComponent} from './cryptocurrency-details.component';
 import {DetailsListItemComponent} from './details-list-item/details-list-item.component';
-import {fiatCurrenciesReducer} from '../../reducers/fiat-currencies.reducer';
+import {fiatCurrenciesReducer} from '../../store/reducers/fiat-currencies.reducer';
 import {ReducerName} from '../../model/reducer-name.enum';
 
 describe('CryptocurrencyDetailsComponent', () => {
