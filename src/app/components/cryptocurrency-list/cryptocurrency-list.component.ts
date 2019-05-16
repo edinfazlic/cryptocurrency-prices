@@ -28,8 +28,7 @@ export class CryptocurrencyListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   fiatCurrency: FiatCurrency;
 
-  constructor(private cryptocurrencyService: CryptocurrencyService,
-              private store$: Store<AppState>,
+  constructor(private store$: Store<AppState>,
               private router: Router) {
     this.subscribeEvents();
   }
