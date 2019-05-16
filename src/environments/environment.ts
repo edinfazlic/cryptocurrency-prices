@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://sandbox-api.coinmarketcap.com',
-  apiKey: ''
+  apiKey: '973a2840-23f4-4300-8e4d-8d59842c5b88'
 };
 
 /*
