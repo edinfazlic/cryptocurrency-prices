@@ -4,13 +4,13 @@ import {filter, map, mergeMap, withLatestFrom} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 
-import {CryptocurrencyService} from '../service/cryptocurrency.service';
-import {Action, ChooseCryptocurrency, SelectFiatCurrency, UpdateCurrencies, UpdateFiatCurrency} from '../shared/cryptocurrency.actions';
-import {ActionName} from '../model/action-name.enum';
-import {ReducerName} from '../model/reducer-name.enum';
-import {FiatStateModel} from '../model/fiat-state.model';
-import {FiatCurrency} from '../model/fiat-currency.enum';
-import {Constants} from '../shared/constants';
+import {CryptocurrencyService} from '../../service/cryptocurrency.service';
+import {Action, ChooseCryptocurrency, SelectFiatCurrency, UpdateCurrencies, UpdateFiatCurrency} from '../cryptocurrency.actions';
+import {ActionName} from '../../model/action-name.enum';
+import {ReducerName} from '../../model/reducer-name.enum';
+import {FiatStateModel} from '../../model/fiat-state.model';
+import {FiatCurrency} from '../../model/fiat-currency.enum';
+import {Constants} from '../../shared/constants';
 
 interface AppState {
   [ReducerName.FIAT_CURRENCY_SELECTION]: FiatStateModel;

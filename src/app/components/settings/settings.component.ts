@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {FiatCurrency, getEnumByValue} from '../../model/fiat-currency.enum';
 import {ReducerName} from '../../model/reducer-name.enum';
-import * as Action from '../../shared/cryptocurrency.actions';
+import * as Action from '../../store/cryptocurrency.actions';
 import {FiatStateModel} from '../../model/fiat-state.model';
 
 interface AppState {

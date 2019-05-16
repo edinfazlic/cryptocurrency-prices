@@ -4,7 +4,7 @@ import {Store} from '@ngrx/store';
 import {Router} from '@angular/router';
 import {Cryptocurrency} from '../../model/cryptocurrency.model';
 import {CryptocurrencyService} from '../../service/cryptocurrency.service';
-import * as Action from '../../shared/cryptocurrency.actions';
+import * as Action from '../../store/cryptocurrency.actions';
 import {ReducerName} from '../../model/reducer-name.enum';
 import {CryptocurrencyCollectionModel} from '../../model/cryptocurrency-collection.model';
 import {Route} from '../../model/route.enum';
@@ -28,8 +28,7 @@ export class CryptocurrencyListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   fiatCurrency: FiatCurrency;
 
-  constructor(private cryptocurrencyService: CryptocurrencyService,
-              private store$: Store<AppState>,
+  constructor(private store$: Store<AppState>,
               private router: Router) {
     this.subscribeEvents();
   }

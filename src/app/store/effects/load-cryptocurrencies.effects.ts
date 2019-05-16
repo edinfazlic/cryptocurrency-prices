@@ -3,8 +3,8 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 import {mergeMap, take} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
-import {Action, LoadCryptocurrencies, ReloadCryptocurrencies} from '../shared/cryptocurrency.actions';
-import {ActionName} from '../model/action-name.enum';
+import {Action, LoadCryptocurrencies, ReloadCryptocurrencies} from '../cryptocurrency.actions';
+import {ActionName} from '../../model/action-name.enum';
 
 @Injectable()
 export class LoadCryptocurrenciesEffects {

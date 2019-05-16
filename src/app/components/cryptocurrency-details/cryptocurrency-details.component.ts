@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {ReducerName} from '../../model/reducer-name.enum';
 import {Cryptocurrency} from '../../model/cryptocurrency.model';
 import {FiatStateModel} from '../../model/fiat-state.model';
-import * as Action from '../../shared/cryptocurrency.actions';
+import * as Action from '../../store/cryptocurrency.actions';
 
 interface AppState {
   [ReducerName.SELECTION]: Cryptocurrency;

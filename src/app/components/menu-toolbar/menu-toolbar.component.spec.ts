@@ -1,6 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {MatToolbarModule} from '@angular/material';
+import {RouterTestingModule} from '@angular/router/testing';
+import {StoreModule} from '@ngrx/store';
 
-import { MenuToolbarComponent } from './menu-toolbar.component';
+import {MenuToolbarComponent} from './menu-toolbar.component';
+import {fiatCurrenciesReducer} from '../../store/reducers/fiat-currencies.reducer';
+import {ReducerName} from '../../model/reducer-name.enum';
 
 describe('MenuToolbarComponent', () => {
   let component: MenuToolbarComponent;
@@ -8,9 +13,16 @@ describe('MenuToolbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuToolbarComponent ]
+      imports: [
+        MatToolbarModule,
+        RouterTestingModule,
+        StoreModule.forRoot({
+          [ReducerName.FIAT_CURRENCY_SELECTION]: fiatCurrenciesReducer
+        })
+      ],
+      declarations: [MenuToolbarComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
