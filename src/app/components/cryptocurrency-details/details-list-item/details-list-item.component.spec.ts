@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {MatListModule} from '@angular/material';
 
-import { DetailsListItemComponent } from './details-list-item.component';
+import {DetailsListItemComponent} from './details-list-item.component';
 
 describe('DetailsListItemComponent', () => {
   let component: DetailsListItemComponent;
@@ -8,9 +9,12 @@ describe('DetailsListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailsListItemComponent ]
+      imports: [
+        MatListModule,
+      ],
+      declarations: [DetailsListItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
