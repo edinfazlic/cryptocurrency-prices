@@ -25,14 +25,14 @@ import {CryptocurrencyService} from './service/cryptocurrency.service';
 import {DeactivateSettingsGuard} from './shared/deactivateSettings.guard';
 
 import {ReducerName} from './model/reducer-name.enum';
-import {cryptocurrenciesReducer} from './shared/cryptocurrencies.reducer';
-import {selectionReducer} from './shared/selection.reducer';
-import {fiatCurrenciesReducer} from './shared/fiat-currencies.reducer';
+import {cryptocurrenciesReducer} from './reducers/cryptocurrencies.reducer';
+import {selectionReducer} from './reducers/selection.reducer';
+import {fiatCurrenciesReducer} from './reducers/fiat-currencies.reducer';
 
-import {CryptocurrencyEffects} from './shared/cryptocurrencies.effects';
-import {ReloadCryptocurrencyEffects} from './shared/reload-cryptocurrencies.effects';
-import {LoadCryptocurrenciesEffects} from './shared/load-cryptocurrencies.effects';
-import {ReloadCryptocurrencyDetailEffects} from './shared/reload-cryptocurrency-detail.effects';
+import {CryptocurrencyEffects} from './effects/cryptocurrencies.effects';
+import {ReloadCryptocurrencyEffects} from './effects/reload-cryptocurrencies.effects';
+import {LoadCryptocurrenciesEffects} from './effects/load-cryptocurrencies.effects';
+import {ReloadCryptocurrencyDetailEffects} from './effects/reload-cryptocurrency-detail.effects';
 
 @NgModule({
   declarations: [
