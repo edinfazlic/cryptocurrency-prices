@@ -1,6 +1,7 @@
 import {FiatInfoDto} from './fiat-info.dto';
 
 export interface CryptocurrencyDto {
+  id: number;
   cmc_rank: number;
   name: string;
   quote: {[fiatSymbol: string]: FiatInfoDto};

@@ -2,7 +2,7 @@ table {
   width: 100%;
 }
 
-.mat-row:nth-child(even){
+.mat-row:nth-child(even) {
   background-color: #ebebeb;
 }
 
@@ -13,4 +13,9 @@ table {
 
 .price-column-header {
   vertical-align: super;
+}
+
+.refresh-button {
+  margin-left: 15px;
+  margin-top: 10px;
 }

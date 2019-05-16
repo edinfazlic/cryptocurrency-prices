@@ -47,11 +47,11 @@ export class CryptocurrencyListComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.refresh();
+    this.store$.dispatch(new Action.LoadCryptocurrencies());
   }
 
   refresh() {
-    // this.store$.dispatch(new Action.FetchCurrencies(this.fiatCurrency));
+    this.store$.dispatch(new Action.ReloadCryptocurrencies());
   }
 
   showDetails(cryptocurrency: Cryptocurrency) {
