@@ -15,6 +15,9 @@ export class CryptocurrencyService {
 
   private static MULTIPLE_CONVERSIONS = true;
 
+  private static API_URL = environment.apiUrl;
+  private static API_KEY = environment.apiKey;
+
   constructor(private http: HttpClient) {
   }
 
@@ -42,14 +45,14 @@ export class CryptocurrencyService {
   }
 
   private getListApi(n: number, fiatValue: string) {
-    return this.http.get<CryptocurrencyListingDto>('/api/v1/cryptocurrency/listings/latest',
+    return this.http.get<CryptocurrencyListingDto>(`${CryptocurrencyService.API_URL}/api/v1/cryptocurrency/listings/latest`,
       {
         params: {
           'start': '1',
           'limit': '' + n,
           'convert': fiatValue
         },
-        headers: {'X-CMC_PRO_API_KEY': environment.apiKey}
+        headers: {'X-CMC_PRO_API_KEY': CryptocurrencyService.API_KEY}
       });
   }
 
