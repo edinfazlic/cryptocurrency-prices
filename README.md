@@ -12,7 +12,7 @@ The app not only functions well but is also easily maintainable and upgradable.
 Not much time was invested with designs.
 
 
-##Functionalities:
+## Functionalities:
  
 - Cryptocurrency List
     - The cryptocurrency list has the top 100 cryptocurrencies
