@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import {MatTableModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -9,7 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule} from '@angular/common/http';
-import {StoreModule} from '@ngrx/store';
+import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -34,6 +34,14 @@ import {ReloadCryptocurrencyEffects} from './store/effects/reload-cryptocurrenci
 import {LoadCryptocurrenciesEffects} from './store/effects/load-cryptocurrencies.effects';
 import {ReloadCryptocurrencyDetailEffects} from './store/effects/reload-cryptocurrency-detail.effects';
 
+export const reducers: ActionReducerMap<any> = {
+  [ReducerName.CURRENCIES]: cryptocurrenciesReducer,
+  [ReducerName.SELECTION]: selectionReducer,
+  [ReducerName.FIAT_CURRENCY_SELECTION]: fiatCurrenciesReducer
+};
+export const REDUCERS_TOKEN = new InjectionToken<ActionReducerMap<any>>('App Reducers');
+export const reducerProvider = { provide: REDUCERS_TOKEN, useValue: reducers };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,11 +64,7 @@ import {ReloadCryptocurrencyDetailEffects} from './store/effects/reload-cryptocu
     FormsModule,
     MatRadioModule,
     HttpClientModule,
-    StoreModule.forRoot({
-      [ReducerName.CURRENCIES]: cryptocurrenciesReducer,
-      [ReducerName.SELECTION]: selectionReducer,
-      [ReducerName.FIAT_CURRENCY_SELECTION]: fiatCurrenciesReducer
-    }),
+    StoreModule.forRoot(REDUCERS_TOKEN),
     EffectsModule.forRoot([
       CryptocurrencyEffects,
       ReloadCryptocurrencyEffects,
@@ -70,7 +74,8 @@ import {ReloadCryptocurrencyDetailEffects} from './store/effects/reload-cryptocu
   ],
   providers: [
     CryptocurrencyService,
-    DeactivateSettingsGuard
+    DeactivateSettingsGuard,
+    reducerProvider
   ],
   bootstrap: [AppComponent]
 })
