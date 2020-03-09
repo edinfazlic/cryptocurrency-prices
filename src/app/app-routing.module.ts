@@ -5,7 +5,7 @@ import {CryptocurrencyListComponent} from './components/cryptocurrency-list/cryp
 import {CryptocurrencyDetailsComponent} from './components/cryptocurrency-details/cryptocurrency-details.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import {Route} from './model/route.enum';
-import {DeactivateSettingsGuard} from './shared/deactivateSettings.guard';
+import {DeactivateSettingsGuard} from './shared/deactivate-settings.guard';
 
 const routes: Routes = [
   {path: Route.LIST, component: CryptocurrencyListComponent},

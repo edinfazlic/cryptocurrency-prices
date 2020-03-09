@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {FiatCurrency, getEnumByValue} from '../../model/fiat-currency.enum';
 import {ReducerName} from '../../model/reducer-name.enum';
@@ -12,7 +12,8 @@ interface AppState {
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  styleUrls: ['./settings.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SettingsComponent {
   fiatCurrencies: string[] = Object.values(FiatCurrency);

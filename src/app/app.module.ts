@@ -22,7 +22,7 @@ import {MenuToolbarComponent} from './components/menu-toolbar/menu-toolbar.compo
 import {SettingsComponent} from './components/settings/settings.component';
 
 import {CryptocurrencyService} from './service/cryptocurrency.service';
-import {DeactivateSettingsGuard} from './shared/deactivateSettings.guard';
+import {DeactivateSettingsGuard} from './shared/deactivate-settings.guard';
 
 import {ReducerName} from './model/reducer-name.enum';
 import {cryptocurrenciesReducer} from './store/reducers/cryptocurrencies.reducer';

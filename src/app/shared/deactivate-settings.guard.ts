@@ -5,8 +5,6 @@ import {SettingsComponent} from '../components/settings/settings.component';
 
 @Injectable()
 export class DeactivateSettingsGuard implements CanDeactivate<SettingsComponent> {
-  constructor() {
-  }
 
   canDeactivate(
     component: SettingsComponent,

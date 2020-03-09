@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {NavigationStart, Router} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
@@ -17,7 +17,8 @@ interface AppState {
 @Component({
   selector: 'app-menu-toolbar',
   templateUrl: './menu-toolbar.component.html',
-  styleUrls: ['./menu-toolbar.component.scss']
+  styleUrls: ['./menu-toolbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuToolbarComponent {
 

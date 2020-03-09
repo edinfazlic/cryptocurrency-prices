@@ -1,15 +1,14 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
-import {Store} from '@ngrx/store';
-import {Router} from '@angular/router';
-import {Cryptocurrency} from '../../model/cryptocurrency.model';
-import {CryptocurrencyService} from '../../service/cryptocurrency.service';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { CryptocurrencyCollectionModel } from '../../model/cryptocurrency-collection.model';
+import { Cryptocurrency } from '../../model/cryptocurrency.model';
+import { FiatCurrency } from '../../model/fiat-currency.enum';
+import { FiatStateModel } from '../../model/fiat-state.model';
+import { ReducerName } from '../../model/reducer-name.enum';
+import { Route } from '../../model/route.enum';
 import * as Action from '../../store/cryptocurrency.actions';
-import {ReducerName} from '../../model/reducer-name.enum';
-import {CryptocurrencyCollectionModel} from '../../model/cryptocurrency-collection.model';
-import {Route} from '../../model/route.enum';
-import {FiatCurrency} from '../../model/fiat-currency.enum';
-import {FiatStateModel} from '../../model/fiat-state.model';
 
 interface AppState {
   [ReducerName.CURRENCIES]: CryptocurrencyCollectionModel;
@@ -19,7 +18,8 @@ interface AppState {
 @Component({
   selector: 'app-cryptocurrency-list',
   templateUrl: './cryptocurrency-list.component.html',
-  styleUrls: ['./cryptocurrency-list.component.scss']
+  styleUrls: ['./cryptocurrency-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CryptocurrencyListComponent implements OnInit {
   displayedColumns: string[] = ['rank', 'symbol', 'price', 'change'];
