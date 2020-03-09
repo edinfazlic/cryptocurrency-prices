@@ -7,36 +7,37 @@ Not much time was invested with designs.
 
 ## Used:
 - Angular, version 7
-- NgRx for state management
+- NgRx, for state management
+- TSlint (plus codelyzer), for static code analysis
 - GitHub for review
 
 ## Functionalities:
 - Cryptocurrency List
-    - The cryptocurrency list has the top 100 cryptocurrencies
-    - The list has a way to refresh (button)
-    - Each item in the list has the following info:
-        - rank
-        - symbol
-        - price in the selected fiat currency
-        - 24 hour change
-    - If the item is clicked, the cryptocurrency details are shown
+  - The cryptocurrency list has the top 100 cryptocurrencies
+  - The list has a way to refresh (button)
+  - Each item in the list has the following info:
+    - rank
+    - symbol
+    - price in the selected fiat currency
+    - 24 hour change
+  - If the item is clicked, the cryptocurrency details are shown
 - Cryptocurrency Details
-    - This screen contains a bit more info about the selected cryptocurrency:
-        - rank
-        - name
-        - symbol
-        - price, 24h volume and market cap in the selected fiat currency
-        - price in bitcoin
-        - 1h change, 24h change, 7d change
-        - total and available supply
-    - This screen has a button to refresh
+  - This screen contains a bit more info about the selected cryptocurrency:
+    - rank
+    - name
+    - symbol
+    - price, 24h volume and market cap in the selected fiat currency
+    - price in bitcoin
+    - 1h change, 24h change, 7d change
+    - total and available supply
+  - This screen has a button to refresh
 - Settings
-    - This screen is accessible through an icon in the toolbar that is present on all other screens
-    - User can select one of the following fiat currencies:
-        - USD
-        - EUR
-        - CNY
-    - When the user goes back, if the selected fiat currency was changed, the results are updated on the previous screen
+  - This screen is accessible through an icon in the toolbar that is present on all other screens
+  - User can select one of the following fiat currencies:
+    - USD
+    - EUR
+    - CNY
+  - When the user goes back, if the selected fiat currency was changed, the results are updated on the previous screen
 
 ## Meta info
 Application showcases knowledge of:
@@ -63,18 +64,18 @@ Application showcases knowledge of:
   - Fat-arrow functions (preserving "this" context and making code more readable with meaningful names)
 - General
   - REST calls
-      - GET with parameters
+    - GET with parameters
   - Data structures
-      - Array for cryptocurrency list management, upon which JS array methods were used (map())
+    - Array for cryptocurrency list management, upon which JS array methods were used (map())
   - Helpers and utility classes with mostly static content
   - Having git commit messages readable
 - Concepts
   - Separation of concerns
   - "N-tier architecture"
-      - Display and styling only, without any logic (HTML template and CSS) - only communicates with Controllers
-      - Components communicate through actions and selectors, and with other trivial components
-      - Simple data merging, conversion and management logic can be found in effects, as well as chaining other actions
-      - Logic and invoking outside of the application is done in services
+    - Display and styling only, without any logic (HTML template and CSS) - only communicates with Controllers
+    - Components communicate through actions and selectors, and with other trivial components
+    - Simple data merging, conversion and management logic can be found in effects, as well as chaining other actions
+    - Logic and invoking outside of the application is done in services
   - Linting (with TSlint)
   - Refactoring (Updating all components to OnPush change detection strategy...)
   - Prototyping (Fast completion without full functionality, displaying test concept, process or design)
