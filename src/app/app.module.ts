@@ -22,6 +22,7 @@ import {MenuToolbarComponent} from './components/menu-toolbar/menu-toolbar.compo
 import {SettingsComponent} from './components/settings/settings.component';
 
 import {CryptocurrencyService} from './service/cryptocurrency.service';
+import {SocialMediaService} from './service/social-media.service';
 import {DeactivateSettingsGuard} from './shared/deactivate-settings.guard';
 
 import {ReducerName} from './model/reducer-name.enum';
@@ -75,6 +76,7 @@ export const reducerProvider = { provide: REDUCERS_TOKEN, useValue: reducers };
   providers: [
     CryptocurrencyService,
     DeactivateSettingsGuard,
+    SocialMediaService,
     reducerProvider
   ],
   bootstrap: [AppComponent]
