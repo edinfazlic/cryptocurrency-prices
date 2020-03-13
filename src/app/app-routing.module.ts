@@ -11,7 +11,6 @@ const routes: Routes = [
   {path: Route.LIST, component: CryptocurrencyListComponent},
   {path: Route.DETAILS, component: CryptocurrencyDetailsComponent},
   {path: Route.SETTINGS, component: SettingsComponent, canDeactivate: [DeactivateSettingsGuard]},
-  {path: '', redirectTo: Route.LIST, pathMatch: 'full'}
 ];
 
 @NgModule({

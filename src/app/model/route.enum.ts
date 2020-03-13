@@ -1,5 +1,5 @@
 export enum Route {
-  LIST = 'list',
+  LIST = '',
   DETAILS = 'details',
   SETTINGS = 'settings'
 }
